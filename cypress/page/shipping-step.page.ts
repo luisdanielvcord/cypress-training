@@ -7,11 +7,11 @@ class ShippingStepPage {
         this.proceedCheckout = "[name=\"processCarrier\"]";
     }
 
-    public checkTermsBox(): void {
+    public acceptTerms(): void {
         cy.get(this.termsCheckbox).check();
     }
 
-    public clickProceedToCheckout(): void {
+    public proceedToCheckout(): void {
         cy.get(this.proceedCheckout).click();
     }
 }

@@ -1,5 +1,12 @@
-import {AddressStepPage, LoginPage, MenuContentPage, PaymentStepPage,
-  ProductsListPage, ShippingStepPage, ShoppingCartPage} from "../page/index";
+import {
+  AddressStepPage,
+  LoginPage,
+  MenuContentPage,
+  PaymentStepPage,
+  ProductsListPage,
+  ShippingStepPage,
+  ShoppingCartPage,
+} from "../page/index";
 
 const menuContentPage = new MenuContentPage();
 const productLists = new ProductsListPage();
@@ -15,20 +22,23 @@ describe("Buy a t-shirt", () => {
     menuContentPage.goToTShirtMenu();
 
     productLists.addShirtToCart();
-    productLists.clickProceedToCheckout();
+    productLists.proceedToCheckout();
 
-    shoppingCartPage.clickProceedToCheckout();
+    shoppingCartPage.proceedToCheckout();
 
-    loginPage.login();
+    loginPage.login("aperdomobo@gmail.com", "WorkshopProtractor");
 
-    addressStepPage.clickProceedToCheckout();
+    addressStepPage.proceedToCheckout();
 
-    shippingStepPage.checkTermsBox();
-    shippingStepPage.clickProceedToCheckout();
+    shippingStepPage.acceptTerms();
+    shippingStepPage.proceedToCheckout();
 
     paymentStepPage.selectBankWire();
-    paymentStepPage.clickConfirmOrderButton();
+    paymentStepPage.confirmOrder();
 
-    paymentStepPage.getConfirmedOrder();
+    paymentStepPage.getConfirmationMessage().should(
+        "have.text",
+        "Your order on My Store is complete.",
+    );
   });
 });

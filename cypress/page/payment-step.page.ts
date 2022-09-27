@@ -14,15 +14,12 @@ class PaymentStepPage {
         cy.get(this.bankWire).click();
     }
 
-    public clickConfirmOrderButton(): void {
+    public confirmOrder(): void {
         cy.get(this.confirmOrderButton).click();
     }
 
-    public getConfirmedOrder(): void {
-        cy.get(this.confirmedOrder).should(
-            "have.text",
-            "Your order on My Store is complete.",
-          );
+    public getConfirmationMessage(): any {
+        return cy.get(this.confirmedOrder);
     }
 }
 

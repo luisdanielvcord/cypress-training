@@ -12,7 +12,7 @@ class ProductsListPage {
         cy.get(this.addShirt).click();
     }
 
-    public clickProceedToCheckout(): void {
+    public proceedToCheckout(): void {
         cy.get(this.proceedCheckout).click();
     }
 }
