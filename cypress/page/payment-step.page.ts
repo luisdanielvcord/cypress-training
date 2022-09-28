@@ -7,7 +7,7 @@ class PaymentStepPage {
     constructor() {
         this.bankWire = ".bankwire";
         this.confirmOrderButton = "#cart_navigation button";
-        this.confirmedOrder = "#center_column > div > p > strong";
+        this.confirmedOrder = "is complete";
     }
 
     public selectBankWire(): void {
@@ -19,7 +19,7 @@ class PaymentStepPage {
     }
 
     public getConfirmationMessage(): any {
-        return cy.get(this.confirmedOrder);
+        return cy.contains(this.confirmedOrder);
     }
 }
 
