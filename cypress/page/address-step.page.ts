@@ -6,7 +6,7 @@ class AddressStepPage {
     }
 
     public proceedToCheckout(): void {
-        cy.get(this.proceedCheckout).click({force: true});
+        cy.get(this.proceedCheckout).click();
     }
 }
 

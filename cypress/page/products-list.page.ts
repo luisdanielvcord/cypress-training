@@ -3,17 +3,17 @@ class ProductsListPage {
     private proceedCheckout: string;
 
     constructor() {
-        this.addShirt = "#center_column a.button.ajax_add_to_cart_button.btn.btn-default";
-        this.proceedCheckout = "[style*='display: block;'] .button-container > a";
+        this.addShirt = "Add to cart";
+        this.proceedCheckout = "Proceed to checkout";
 
     }
 
     public addShirtToCart(): void {
-        cy.get(this.addShirt).click();
+        cy.contains(this.addShirt).click();
     }
 
     public proceedToCheckout(): void {
-        cy.get(this.proceedCheckout).click();
+        cy.contains(this.proceedCheckout).click();
     }
 }
 
